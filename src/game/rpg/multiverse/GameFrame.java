@@ -22,38 +22,12 @@ public class GameFrame extends Application {
 		//Create the app layout and add the properties	
 		theStage = stage;
 		Group root = new Group();
-		startScene = new StartScreen(root, 400, 250);
+		startScene = new StartScreen(root, 600, 250);
 		startScene.initialize(root);
-		
-		/*BattleScreen battleScene = new BattleScreen(root, 400, 250);
-		battleScene.initialize(root);*/
 		
 		stage.setTitle("Multiverse Battleground");
 		stage.setScene(startScene);
 		stage.show();
-		
-		//Button1 event actions
-		/*btn1.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent arg1) {
-				root.getChildren().remove(btn1);
-				text.setText("Pick your character");
-				text.setLayoutX(20);
-				text.setLayoutY(-80);
-				root.getChildren().add(btn2);
-				btn2.setLayoutY(200);
-			}
-		});
-		
-		//Button2 event actions
-		btn2.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent arg1) {
-				Platform.exit();
-			}
-		});*/
 		
 	}
 }

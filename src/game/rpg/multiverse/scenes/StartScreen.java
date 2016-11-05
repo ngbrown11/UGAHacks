@@ -22,9 +22,9 @@ public class StartScreen extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(60, 120, "Multiverse Battleground");
+		final Text text = new Text(160, 120, "Multiverse Battleground");
 		Button start = new Button("Start");
-		start.setLayoutX(175);		//Set location
+		start.setLayoutX(275);		//Set location
 		start.setLayoutY(150);
 		
 		//Edit the main text
@@ -40,7 +40,7 @@ public class StartScreen extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
-				PickChar pickCharScene = new PickChar(rootNext, 400, 250);
+				PickChar pickCharScene = new PickChar(rootNext, 600, 250);
 				pickCharScene.initialize(rootNext);
 				
 				GameFrame.theStage.setScene(pickCharScene);

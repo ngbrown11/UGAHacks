@@ -3,6 +3,7 @@ package game.rpg.multiverse.scenes;
 import javafx.scene.Scene;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
