@@ -1,4 +1,4 @@
-package game.rpg.tvbattle;
+package game.rpg.multiverse;
 // MULTIVERSE BATTLEGROUND
 // Where universes collide
 
@@ -35,15 +35,9 @@ public class Person {
  * 
  * Mario
  * Link
- * Mother of Dragons
- * Spongebob
- * Snorlax
- * Larry David
- * Jimmy Neutron
  * Deadpool
- * Wolverine
- * Batman
- * Alfred
- * Wonder Woman
+ * Thomas Edison
+ * Daenerys Targaren
  * 
  * */
+
