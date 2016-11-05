@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import game.rpg.multiverse.GameFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -38,9 +39,11 @@ public class StartScreen extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				BattleScreen battleScene = new BattleScreen(root, 400, 250);
-				battleScene.initialize(root);
+				Group rootNext = new Group();
+				PickChar pickCharScene = new PickChar(rootNext, 400, 250);
+				pickCharScene.initialize(rootNext);
 				
+				GameFrame.theStage.setScene(pickCharScene);
 			}
 		});
 		

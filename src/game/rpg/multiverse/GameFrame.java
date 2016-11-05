@@ -8,6 +8,10 @@ import javafx.scene.Group;
 
 public class GameFrame extends Application {
 	
+	public static Stage theStage;
+	private StartScreen startScene;
+	private BattleScreen battleScene;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -15,9 +19,10 @@ public class GameFrame extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		//Create the app layout and add the properties		
+		//Create the app layout and add the properties	
+		theStage = stage;
 		Group root = new Group();
-		StartScreen startScene = new StartScreen(root, 400, 250);
+		startScene = new StartScreen(root, 400, 250);
 		startScene.initialize(root);
 		
 		/*BattleScreen battleScene = new BattleScreen(root, 400, 250);
