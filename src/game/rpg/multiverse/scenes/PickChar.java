@@ -3,6 +3,7 @@ package game.rpg.multiverse.scenes;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.Group;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -12,8 +13,36 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import game.rpg.multiverse.GameFrame;
+import game.rpg.multiverse.Stats;
+import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
+/**		SAVE THIS FOR BATTLESCENE START
+ * 
+ * select1.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg1) {
+				AnchorPane rootNext = new AnchorPane();
+				AnchorPane rootNext1 = new AnchorPane();
+				
+				Stats p1 = new Stats(1);
+				System.out.println("You selected Mario");
+				
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(rootNext, rootNext1, p1);
+				
+				GameFrame.theStage.setScene(battleScene);
+			}
+		});
+		
+*/
+
+
+
 
 public class PickChar extends Scene {
 
@@ -29,13 +58,13 @@ public class PickChar extends Scene {
 		Canvas canvas = new Canvas(600, 190);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
-		//Create image variables for scene
+		//Create image variables for characters
 		Image mario = new Image("mario.jpg");
 		gc.drawImage(mario, 40, 60);
-		Image deadpool = new Image("deadpool.jpg");
-		gc.drawImage(deadpool, (40+130), 60);
 		Image link = new Image("link.jpg");
-		gc.drawImage(link, (40+130+130), 60);
+		gc.drawImage(link, (40+130), 60);
+		Image deadpool = new Image("deadpool.jpg");
+		gc.drawImage(deadpool, (40+130+130), 60);
 		Image thomas = new Image("thomasEd.jpg");
 		gc.drawImage(thomas, (40+130+130+130), 60);
 		
@@ -73,13 +102,10 @@ public class PickChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
+				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
+				cpuPickScene.initialize(rootNext);
 				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext);
-				
-				GameFrame.theStage.setScene(battleScene);
+				GameFrame.theStage.setScene(cpuPickScene);
 			}
 		});
 		select2.setOnAction(new EventHandler<ActionEvent>() {
@@ -87,13 +113,10 @@ public class PickChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
+				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
+				cpuPickScene.initialize(rootNext);
 				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext);
-				
-				GameFrame.theStage.setScene(battleScene);
+				GameFrame.theStage.setScene(cpuPickScene);
 			}
 		});
 		select3.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,13 +124,10 @@ public class PickChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
+				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
+				cpuPickScene.initialize(rootNext);
 				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext);
-				
-				GameFrame.theStage.setScene(battleScene);
+				GameFrame.theStage.setScene(cpuPickScene);
 			}
 		});
 		select4.setOnAction(new EventHandler<ActionEvent>() {
@@ -115,13 +135,10 @@ public class PickChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
+				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
+				cpuPickScene.initialize(rootNext);
 				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext);
-				
-				GameFrame.theStage.setScene(battleScene);
+				GameFrame.theStage.setScene(cpuPickScene);
 			}
 		});
 	}

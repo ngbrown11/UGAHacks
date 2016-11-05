@@ -1,7 +1,7 @@
 package game.rpg.multiverse;
 
-import game.rpg.multiverse.scenes.BattleScreen;
 import game.rpg.multiverse.scenes.StartScreen;
+import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
