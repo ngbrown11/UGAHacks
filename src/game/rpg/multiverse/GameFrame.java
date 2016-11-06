@@ -30,10 +30,11 @@ public class GameFrame extends Application {
 		stage.setTitle("Multiverse Battleground");
 		stage.setScene(startScene);
 		
-		Alert hello = new Alert(AlertType.CONFIRMATION, "Hello, and welcome to the Mutliverse!\n\n"
+		Alert hello = new Alert(AlertType.INFORMATION, "Hello, and welcome to the Mutliverse!\n\n"
 				+ "The place where universes collide");
 		hello.setTitle("MULTIVERSE BATTLEGROUND");
-		hello.show();
+		hello.setHeaderText("Multiverse Battleground");
+		hello.showAndWait();
 		
 		stage.show();
 		

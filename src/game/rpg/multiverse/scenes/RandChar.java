@@ -30,33 +30,33 @@ public class RandChar extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(140, 40, "Pick CPU character");
-		Canvas canvas = new Canvas(600, 190);
+		final Text text = new Text(130, 40, "Pick CPU character");
+		Canvas canvas = new Canvas(600, 240);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
 		//Create image variables for characters
 		Image mario = new Image("mario.jpg");
-		gc.drawImage(mario, 40, 60);
+		gc.drawImage(mario, 40, 90);
 		Image link = new Image("link.jpg");
-		gc.drawImage(link, (40+130), 60);
+		gc.drawImage(link, (40+130), 90);
 		Image deadpool = new Image("deadpool.jpg");
-		gc.drawImage(deadpool, (40+130+130), 60);
+		gc.drawImage(deadpool, (40+130+130), 90);
 		Image thomas = new Image("thomasEd.jpg");
-		gc.drawImage(thomas, (40+130+130+130), 60);
+		gc.drawImage(thomas, (40+130+130+130), 90);
 		
 		//Create button variables for scene
 		Button select1 = new Button("Select");
 		select1.setLayoutX(75);		//Set location
-		select1.setLayoutY(200);
+		select1.setLayoutY(225);
 		Button select2 = new Button("Select");
 		select2.setLayoutX(200);		//Set location
-		select2.setLayoutY(200);
+		select2.setLayoutY(225);
 		Button select3 = new Button("Select");
 		select3.setLayoutX(325);		//Set location
-		select3.setLayoutY(200);
+		select3.setLayoutY(225);
 		Button select4 = new Button("Select");
 		select4.setLayoutX(450);		//Set location
-		select4.setLayoutY(200);
+		select4.setLayoutY(225);
 		
 		
 		
@@ -80,18 +80,19 @@ public class RandChar extends Scene {
 				if(PickChar.p1.getName() == (new Stats(1)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
-					wrong.show();
+					wrong.showAndWait();
 				}
 				else {
 					AnchorPane rootNext = new AnchorPane();
 					
 					Stats p2 = new Stats(1);
-					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+					Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
 							+ p2.displayInfo());
 					info.setTitle("Stats");
-					info.show();
+					info.setHeaderText(null);
+					info.showAndWait();
 					
-					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
 					battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 					GameFrame.theStage.setScene(battleScene);
@@ -105,18 +106,19 @@ public class RandChar extends Scene {
 				if(PickChar.p1.getName() == (new Stats(2)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
-					wrong.show();
+					wrong.showAndWait();
 				}
 				else {
 					AnchorPane rootNext = new AnchorPane();
 
 					Stats p2 = new Stats(2);
-					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+					Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
 							+ p2.displayInfo());
 					info.setTitle("Stats");
-					info.show();
+					info.setHeaderText(null);
+					info.showAndWait();
 					
-					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
 					battleScene.initialize(rootNext, PickChar.p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);
@@ -130,18 +132,19 @@ public class RandChar extends Scene {
 				if(PickChar.p1.getName() == (new Stats(3)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
-					wrong.show();
+					wrong.showAndWait();
 				}
 				else {
 					AnchorPane rootNext = new AnchorPane();
 
 					Stats p2 = new Stats(3);
-					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+					Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
 							+ p2.displayInfo());
 					info.setTitle("Stats");
-					info.show();
+					info.setHeaderText(null);
+					info.showAndWait();
 					
-					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
 					battleScene.initialize(rootNext, PickChar.p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);
@@ -155,18 +158,19 @@ public class RandChar extends Scene {
 				if(PickChar.p1.getName() == (new Stats(4)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
-					wrong.show();
+					wrong.showAndWait();
 				}
 				else {
 					AnchorPane rootNext = new AnchorPane();
 
 					Stats p2 = new Stats(4);
-					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+					Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
 							+ p2.displayInfo());
 					info.setTitle("Stats");
-					info.show();
+					info.setHeaderText(null);
+					info.showAndWait();
 					
-					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
 					battleScene.initialize(rootNext, PickChar.p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);

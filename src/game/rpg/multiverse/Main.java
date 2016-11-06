@@ -1,3 +1,4 @@
+package game.rpg.multiverse;
 /*package game.rpg.multiverse;
 
 import java.util.Scanner;

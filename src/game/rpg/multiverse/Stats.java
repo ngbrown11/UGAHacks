@@ -10,6 +10,7 @@ public class Stats {
 	private int attack, defense, speed, health = 100;
 	private static int turn;
 	private String name, move1, move2, move3, move4;
+	public String key;
 	
 	/*Constructor*/
 	
@@ -23,6 +24,7 @@ public class Stats {
 			move2 = "Cape";
 			move3 = "F.L.U.D.D.";
 			move4 = "Goomba Stomp";
+			key = "mario.jpg";
 		}
 		else if (x == 2){
 			name = "Link";
@@ -33,6 +35,7 @@ public class Stats {
 			move2 = "Rupee Toss";
 			move3 = "Army of Chickens";
 			move4 = "Triangle Bitch";
+			key = "link.jpg";
 		}
 		else if (x == 3){
 			name = "Deadpool";
@@ -43,6 +46,7 @@ public class Stats {
 			move2 = "4th wall smack-down";
 			move3 = "Zamboni!!!";
 			move4 = "Sweet, Sweet Slicing";
+			key = "deadpool.jpg";
 		}
 		else if (x == 4){
 			name = "Thomas Edison";
@@ -53,6 +57,7 @@ public class Stats {
 			move2 = "Shocking Conclusion";
 			move3 = "Founding Father Fussing";
 			move4 = "Incandescent Bolt";
+			key = "thomasEd.jpg";
 		}
 	}
 	
@@ -114,6 +119,11 @@ public class Stats {
 			move = move4;
 		}
 		return move;
+	}
+	
+	public String getKey() {
+		
+		return key;
 	}
 
 }

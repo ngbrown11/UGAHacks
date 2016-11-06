@@ -1,4 +1,4 @@
-package game.rpg.multiverse.scenes;
+/*package game.rpg.multiverse.scenes;
 
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -41,16 +41,14 @@ public class Winner extends Scene {
 		root.getChildren().add(text);
 		root.getChildren().add(play);
 		
-		GameFrame.theStage.setScene(this);
-		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		
 		text.setFont(Font.font("Helvetica", 30));
 		
 		text.setFont(Font.font("Helvetica", 50));
 		this.setFill(Color.BLACK);
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		
 		text.setFont(Font.font("Helvetica", 42));
 		this.setFill(Color.DODGERBLUE);
@@ -58,3 +56,4 @@ public class Winner extends Scene {
 	}
 	
 }
+*/

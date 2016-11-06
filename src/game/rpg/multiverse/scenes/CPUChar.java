@@ -53,7 +53,6 @@ public class CPUChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
 				
 				//Randomize CPU
 				int cpu = (int)(Math.random() * 4) + 1;
@@ -65,15 +64,15 @@ public class CPUChar extends Scene {
 					p2 = new Stats(cpu);
 				}
 				
-				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
 						+ p2.displayInfo());
 				info.setTitle("Stats");
-				info.show();
+				info.setHeaderText(null);
+				info.showAndWait();
 				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, PickChar.p1, p2);
+				AnchorPane rootFight = new AnchorPane();
+				BattleScreen battleScene = new BattleScreen(rootFight, 600, 350);
+				battleScene.initialize(rootFight, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
@@ -83,7 +82,7 @@ public class CPUChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
-				RandChar randCharScene = new RandChar(rootNext, 600, 250);
+				RandChar randCharScene = new RandChar(rootNext, 600, 300);
 				randCharScene.initialize(rootNext);
 				
 				GameFrame.theStage.setScene(randCharScene);

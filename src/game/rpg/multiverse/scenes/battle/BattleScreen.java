@@ -1,32 +1,25 @@
 package game.rpg.multiverse.scenes.battle;
 
 import javafx.scene.Scene;
-import javafx.scene.Group;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.effect.DropShadow;
-import javafx.event.ActionEvent;
-import javafx.application.Application;
+import javafx.scene.image.Image;
+import javafx.application.Platform;
 import javafx.stage.Stage;
-
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Alert.AlertType;
 import java.util.Random;
 
 import game.rpg.multiverse.DamageCalcs;
 import game.rpg.multiverse.GameFrame;
 import game.rpg.multiverse.Stats;
 import game.rpg.multiverse.scenes.PickChar;
-import game.rpg.multiverse.scenes.StartScreen;
-import game.rpg.multiverse.scenes.Winner;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.control.Label;
 
 public class BattleScreen extends Scene {
 	
@@ -35,11 +28,9 @@ public class BattleScreen extends Scene {
 		this.setFill(Color.DIMGREY);
 	}
 	
-	DamageCalcs battle = new DamageCalcs();
-	
 	Stage window = GameFrame.theStage;
-	CharacterTurn p1Scene;
-	EnemyTurn p2Scene;
+	/*CharacterTurn p1Scene;
+	EnemyTurn p2Scene;*/
 	Scene scene1, scene2, scene3, scene4;
 	public static Stats p2;
 	
@@ -60,8 +51,20 @@ public class BattleScreen extends Scene {
 	
 	public void initialize(AnchorPane root, Stats p1, Stats p2) {
 		
+		this.p2 = p2;
 		final Text moveP1 = new Text(180, 40, "Choose your move");
+		Canvas canvas = new Canvas(600, 240);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
+		//Add two fighter images
+		Image player = new Image(PickChar.p1.key);
+		Image enemy = new Image(p2.key);
+		
+		gc.drawImage(player, 40, 100);
+		gc.drawImage(enemy, (432), 100);
+		root.getChildren().add(canvas);
+		
+		//Create the button variables
 		btn1 = new Button();
 		btn2 = new Button();
 		btn3 = new Button();
@@ -73,8 +76,6 @@ public class BattleScreen extends Scene {
 		btn8 = new Button();
 		HBox hbox2 = new HBox(8, btn5, btn6, btn7, btn8);
 		//HBox textMove = new HBox(move);
-		
-		this.p2 = p2;
 		
 		//Player turn
 		if(p1.getSpeed() > p2.getSpeed() && (turn % 2 == 0)) {
@@ -188,18 +189,15 @@ public class BattleScreen extends Scene {
 			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
-				Group win = new Group();
-				Winner winScene = new Winner(win, 600, 250);
-				try {
-					winScene.initialize(win, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
+				win.setTitle("MULTIVERSE BATTLEGROUND");
+				win.setHeaderText(null);
+				win.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
 			p2Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p2Scene);
 		});
@@ -213,18 +211,15 @@ public class BattleScreen extends Scene {
 			
 			if (p2.getCurHealth() <= 0){
 				
-				Group win = new Group();
-				Winner winScene = new Winner(win, 600, 250);
-				try {
-					winScene.initialize(win, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
+				win.setTitle("MULTIVERSE BATTLEGROUND");
+				win.setHeaderText(null);
+				win.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
 			p2Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p2Scene);
 		});
@@ -237,18 +232,15 @@ public class BattleScreen extends Scene {
 			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
-				Group win = new Group();
-				Winner winScene = new Winner(win, 600, 250);
-				try {
-					winScene.initialize(win, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
+				win.setTitle("MULTIVERSE BATTLEGROUND");
+				win.setHeaderText(null);
+				win.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
 			p2Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p2Scene);
 		});
@@ -261,18 +253,15 @@ public class BattleScreen extends Scene {
 			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
-				Group win = new Group();
-				Winner winScene = new Winner(win, 600, 250);
-				try {
-					winScene.initialize(win, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
+				win.setTitle("MULTIVERSE BATTLEGROUND");
+				win.setHeaderText(null);
+				win.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
 			p2Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p2Scene);
 		});
@@ -286,18 +275,16 @@ public class BattleScreen extends Scene {
 			DamageCalcs.turnDamageE(p1, p2);
 			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
-				Group lose = new Group();
-				Winner winScene = new Winner(lose, 600, 250);
-				try {
-					winScene.initialize(lose, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
+				lose.setTitle("MULTIVERSE BATTLEGROUND");
+				lose.setHeaderText(null);
+				lose.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
 			p1Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p1Scene);
 		});
@@ -309,18 +296,16 @@ public class BattleScreen extends Scene {
 			DamageCalcs.turnDamageE(p1, p2);
 			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
-				Group lose = new Group();
-				Winner winScene = new Winner(lose, 600, 250);
-				try {
-					winScene.initialize(lose, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+
+				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
+				lose.setTitle("MULTIVERSE BATTLEGROUND");
+				lose.setHeaderText(null);
+				lose.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
 			p1Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p1Scene);
 		});
@@ -332,18 +317,16 @@ public class BattleScreen extends Scene {
 			DamageCalcs.turnDamageE(p1, p2);
 			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
-				Group lose = new Group();
-				Winner winScene = new Winner(lose, 600, 250);
-				try {
-					winScene.initialize(lose, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+
+				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
+				lose.setTitle("MULTIVERSE BATTLEGROUND");
+				lose.setHeaderText(null);
+				lose.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
 			p1Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p1Scene);
 		});
@@ -355,18 +338,16 @@ public class BattleScreen extends Scene {
 			DamageCalcs.turnDamageE(p1, p2);
 			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
-				Group lose = new Group();
-				Winner winScene = new Winner(lose, 600, 250);
-				try {
-					winScene.initialize(lose, p1);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+
+				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
+				lose.setTitle("MULTIVERSE BATTLEGROUND");
+				lose.setHeaderText(null);
+				lose.showAndWait();
+				Platform.exit();
 			}
 			
 			AnchorPane rootNext = new AnchorPane();
-			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
+			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
 			p1Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p1Scene);
 		});

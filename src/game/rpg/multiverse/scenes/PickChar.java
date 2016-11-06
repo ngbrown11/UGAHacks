@@ -79,10 +79,11 @@ public class PickChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				p1 = new Stats(1);
 				
-				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p1.getName() + "'s stats\n"
+				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p1.getName() + "'s stats:\n\n"
 						+ p1.displayInfo());
 				info.setTitle("Stats");
-				info.show();
+				info.setHeaderText(null);
+				info.showAndWait();
 				Group rootNext = new Group();
 				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
 				cpuPickScene.initialize(rootNext);
@@ -96,10 +97,11 @@ public class PickChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				p1 = new Stats(2);
 				
-				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p1.getName() + "'s stats\n"
+				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p1.getName() + "'s stats:\n\n"
 						+ p1.displayInfo());
 				info.setTitle("Stats");
-				info.show();
+				info.setHeaderText(null);
+				info.showAndWait();
 				Group rootNext = new Group();
 				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
 				cpuPickScene.initialize(rootNext);
@@ -113,10 +115,11 @@ public class PickChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				p1 = new Stats(3);
 				
-				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p1.getName() + "'s stats\n"
+				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p1.getName() + "'s stats:\n\n"
 						+ p1.displayInfo());
 				info.setTitle("Stats");
-				info.show();
+				info.setHeaderText(null);
+				info.showAndWait();
 				Group rootNext = new Group();
 				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
 				cpuPickScene.initialize(rootNext);
@@ -130,10 +133,11 @@ public class PickChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				p1 = new Stats(4);
 				
-				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p1.getName() + "'s stats\n"
+				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p1.getName() + "'s stats:\n\n"
 						+ p1.displayInfo());
 				info.setTitle("Stats");
-				info.show();
+				info.setHeaderText(null);
+				info.showAndWait();
 				Group rootNext = new Group();
 				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
 				cpuPickScene.initialize(rootNext);
