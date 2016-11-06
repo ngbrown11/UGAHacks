@@ -42,10 +42,10 @@ public class StartScreen extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
-				PickChar pickCharScene = new PickChar(rootNext, 600, 300);
-				pickCharScene.initialize(rootNext);
+				Player1Char p1PickScene = new Player1Char(rootNext, 700, 250);
+				p1PickScene.initialize(rootNext);
 				
-				GameFrame.theStage.setScene(pickCharScene);
+				GameFrame.theStage.setScene(p1PickScene);
 			}
 		});
 		

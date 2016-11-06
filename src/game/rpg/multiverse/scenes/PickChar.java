@@ -37,13 +37,13 @@ public class PickChar extends Scene {
 		
 		//Create image variables for characters
 		Image mario = new Image("mario.jpg");
-		gc.drawImage(mario, 40, 90);
+		gc.drawImage(mario, 50, 90);
 		Image link = new Image("link.jpg");
-		gc.drawImage(link, (40+130), 90);
+		gc.drawImage(link, (50+130), 90);
 		Image deadpool = new Image("deadpool.jpg");
-		gc.drawImage(deadpool, (40+130+130), 90);
+		gc.drawImage(deadpool, (50+130+130), 90);
 		Image thomas = new Image("thomasEd.jpg");
-		gc.drawImage(thomas, (40+130+130+130), 90);
+		gc.drawImage(thomas, (50+130+130+130), 90);
 		
 		//Create button variables for scene
 		Button select1 = new Button("Select");
@@ -89,10 +89,10 @@ public class PickChar extends Scene {
 				info.setHeaderText(null);
 				info.showAndWait();
 				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Player2Char p2PickScene = new Player2Char(rootNext, 700, 250);
+				p2PickScene.initialize(rootNext, p1);
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				GameFrame.theStage.setScene(p2PickScene);
 			}
 		});
 		select2.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,10 +107,10 @@ public class PickChar extends Scene {
 				info.setHeaderText(null);
 				info.showAndWait();
 				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Player2Char p2PickScene = new Player2Char(rootNext, 700, 250);
+				p2PickScene.initialize(rootNext, p1);
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				GameFrame.theStage.setScene(p2PickScene);
 			}
 		});
 		select3.setOnAction(new EventHandler<ActionEvent>() {
@@ -125,10 +125,10 @@ public class PickChar extends Scene {
 				info.setHeaderText(null);
 				info.showAndWait();
 				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Player2Char p2PickScene = new Player2Char(rootNext, 700, 250);
+				p2PickScene.initialize(rootNext, p1);
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				GameFrame.theStage.setScene(p2PickScene);
 			}
 		});
 		select4.setOnAction(new EventHandler<ActionEvent>() {
@@ -143,10 +143,10 @@ public class PickChar extends Scene {
 				info.setHeaderText(null);
 				info.showAndWait();
 				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Player2Char p2PickScene = new Player2Char(rootNext, 700, 250);
+				p2PickScene.initialize(rootNext, p1);
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				GameFrame.theStage.setScene(p2PickScene);
 			}
 		});
 	}

@@ -20,6 +20,7 @@ import game.rpg.multiverse.DamageCalcs;
 import game.rpg.multiverse.GameFrame;
 import game.rpg.multiverse.Stats;
 import game.rpg.multiverse.scenes.PickChar;
+import game.rpg.multiverse.scenes.Player1Char;
 
 public class BattleScreen extends Scene {
 	
@@ -32,7 +33,7 @@ public class BattleScreen extends Scene {
 	/*CharacterTurn p1Scene;
 	EnemyTurn p2Scene;*/
 	Scene scene1, scene2, scene3, scene4;
-	public static Stats p2;
+	//public static Stats p2;
 	
 	Button btn1;
 	Button btn2;
@@ -52,14 +53,14 @@ public class BattleScreen extends Scene {
 	
 	public void initialize(AnchorPane root, Stats p1, Stats p2) {
 		
-		this.p2 = p2;
-		final Text moveP1 = new Text(180, 40, PickChar.p1.getName()+" turn");
-		final Text moveP2 = new Text(180, 40, BattleScreen.p2.getName()+" turn");
+		//this.p2 = p2;
+		final Text moveP1 = new Text(180, 40, p1.getName()+" turn");
+		final Text moveP2 = new Text(180, 40, p2.getName()+" turn");
 		Canvas canvas = new Canvas(600, 240);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
 		//Add two fighter images
-		Image player = new Image(PickChar.p1.key);
+		Image player = new Image(p1.key);
 		Image enemy = new Image(p2.key);
 		
 		gc.drawImage(player, 40, 100);
@@ -165,9 +166,9 @@ public class BattleScreen extends Scene {
 		btn1.setText(p1.getMove(1));
 		btn1.setOnAction(e -> {
 			move.setText(p1.getName() + " used " + p1.getMove(1));
-			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageC(p1, p2);
-			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			health.setText(p2.getName() + " has " + p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
 				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
@@ -179,16 +180,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
-			p2Scene.initialize(rootNext, PickChar.p1, p2);
+			p2Scene.initialize(rootNext, p1, p2);
 			window.setScene(p2Scene);
 		});
 		
 		btn2.setText(p1.getMove(2));
 		btn2.setOnAction(e -> {
 			move.setText(p1.getName() + " used " + p1.getMove(2));
-			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageC(p1, p2);
-			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			health.setText(p2.getName() + " has " + p2.getCurHealth() + " points left");
 			
 			if (p2.getCurHealth() <= 0){
 				
@@ -201,16 +202,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
-			p2Scene.initialize(rootNext, PickChar.p1, p2);
+			p2Scene.initialize(rootNext, p1, p2);
 			window.setScene(p2Scene);
 		});
 		
 		btn3.setText(p1.getMove(3));
 		btn3.setOnAction(e -> {
 			move.setText(p1.getName() + " used " + p1.getMove(3));
-			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageC(p1, p2);
-			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			health.setText(p2.getName() + " has " + p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
 				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
@@ -222,16 +223,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
-			p2Scene.initialize(rootNext, PickChar.p1, p2);
+			p2Scene.initialize(rootNext, p1, p2);
 			window.setScene(p2Scene);
 		});
 		
 		btn4.setText(p1.getMove(4));
 		btn4.setOnAction(e -> {
 			move.setText(p1.getName() + " used " + p1.getMove(4));
-			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageC(p1, p2);
-			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			health.setText(p2.getName() + " has " + p2.getCurHealth() + " points left");
 			if (p2.getCurHealth() <= 0){
 				
 				Alert win = new Alert(AlertType.INFORMATION, "YOU WIN!\n\nCongratulations");
@@ -243,7 +244,7 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 350);
-			p2Scene.initialize(rootNext, PickChar.p1, p2);
+			p2Scene.initialize(rootNext, p1, p2);
 			window.setScene(p2Scene);
 		});
 		
@@ -252,9 +253,9 @@ public class BattleScreen extends Scene {
 		btn5.setText(p2.getMove(1));
 		btn5.setOnAction(e -> {
 			move.setText(p2.getName() + " used " + p2.getMove(1));
-			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageE(p1, p2);
-			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			health.setText(p1.getName() + " has " + p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
 				
 				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
@@ -266,16 +267,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
-			p1Scene.initialize(rootNext, PickChar.p1, p2);
+			p1Scene.initialize(rootNext, p1, p2);
 			window.setScene(p1Scene);
 		});
 		
 		btn6.setText(p2.getMove(2));
 		btn6.setOnAction(e -> { 
 			move.setText(p2.getName() + " used " + p2.getMove(2));
-			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageE(p1, p2);
-			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			health.setText(p1.getName() + " has " + p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
 
 				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
@@ -287,16 +288,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
-			p1Scene.initialize(rootNext, PickChar.p1, p2);
+			p1Scene.initialize(rootNext, p1, p2);
 			window.setScene(p1Scene);
 		});
 		
 		btn7.setText(p2.getMove(3));
 		btn7.setOnAction(e -> {
 			move.setText(p2.getName() + " used " + p2.getMove(3));
-			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageE(p1, p2);
-			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			health.setText(p1.getName() + " has " + p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
 
 				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
@@ -308,16 +309,16 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
-			p1Scene.initialize(rootNext, PickChar.p1, p2);
+			p1Scene.initialize(rootNext, p1, p2);
 			window.setScene(p1Scene);
 		});
 		
 		btn8.setText(p2.getMove(4));
 		btn8.setOnAction(e -> {
 			move.setText(p2.getName() + " used " + p2.getMove(4));
-			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(p1, p2) + " points of damage.");
 			DamageCalcs.turnDamageE(p1, p2);
-			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			health.setText(p1.getName() + " has " + p1.getCurHealth() + " points left");
 			if (p1.getCurHealth() <= 0){
 
 				Alert lose = new Alert(AlertType.INFORMATION, "YOU LOSE!\n\nSorry, not sorry.");
@@ -329,7 +330,7 @@ public class BattleScreen extends Scene {
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 350);
-			p1Scene.initialize(rootNext, PickChar.p1, p2);
+			p1Scene.initialize(rootNext, p1, p2);
 			window.setScene(p1Scene);
 		});
 		

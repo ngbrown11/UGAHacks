@@ -21,30 +21,30 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 
-public class CPUChar extends Scene {
+public class Player2Char extends Scene {
 
-	public CPUChar(Parent root, double width, double height) {
+	public Player2Char(Parent root, double width, double height) {
 		super(root, width, height);
 		this.setFill(Color.DIMGREY);
 	}
 	
-	public static Stats p2;
+	//public static Stats p2;
 	
-	public void initialize(Group root) {
+	public void initialize(Group root, Stats p1) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(100, 120, "Do you want a random opponent?");
+		final Text text = new Text(80, 120, "Do you want a random character for Player 2?");
 		Button yes = new Button("Yes");
 		Button no = new Button("No");
-		yes.setLayoutX(200);		//Set location
+		yes.setLayoutX(250);		//Set location
 		yes.setLayoutY(150);
 		yes.setPadding(new Insets(10));
-		no.setLayoutX(325);		//Set location
+		no.setLayoutX(400);		//Set location
 		no.setLayoutY(150);
 		no.setPadding(new Insets(10));
 		
 		//Edit the main text
-		text.setFont(Font.font("Calibri", 32));
+		text.setFont(Font.font("Calibri", 28));
 		text.setFill(Color.CRIMSON);
 		text.setEffect(new DropShadow());
 		
@@ -57,14 +57,18 @@ public class CPUChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				
-				//Randomize CPU
-				int cpu = (int)(Math.random() * 4) + 1;
-				p2 = new Stats(cpu);
+				//Randomize Char
+				int player = (int)(Math.random() * 4) + 1;
+				Stats p2 = new Stats(player);
 				
 				//Make sure the CPU is different than the user
-				while(p2.getName() == PickChar.p1.getName()) {
-					cpu = (int)(Math.random() * 4) + 1;
-					p2 = new Stats(cpu);
+				if(p2.getName() == p1.getName() && player < 4) {
+					player += 1;
+					p2 = new Stats(player);
+				}
+				else {
+					player -= 1;
+					p2 = new Stats(player);
 				}
 				
 				Alert info = new Alert(AlertType.INFORMATION, "Here are " + p2.getName() + "'s stats:\n\n"
@@ -75,7 +79,7 @@ public class CPUChar extends Scene {
 				
 				AnchorPane rootFight = new AnchorPane();
 				BattleScreen battleScene = new BattleScreen(rootFight, 600, 350);
-				battleScene.initialize(rootFight, PickChar.p1, p2);
+				battleScene.initialize(rootFight, p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
@@ -86,7 +90,7 @@ public class CPUChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
 				RandChar randCharScene = new RandChar(rootNext, 600, 300);
-				randCharScene.initialize(rootNext);
+				randCharScene.initialize(rootNext, p1);
 				
 				GameFrame.theStage.setScene(randCharScene);
 			}

@@ -28,7 +28,7 @@ public class RandChar extends Scene {
 		this.setFill(Color.BEIGE);
 	}
 	
-	public void initialize(Group root) {
+	public void initialize(Group root, Stats p1) {
 		
 		//Create the variables for the scene
 		final Text text = new Text(160, 40, "Pick CPU character");
@@ -37,13 +37,13 @@ public class RandChar extends Scene {
 		
 		//Create image variables for characters
 		Image mario = new Image("mario.jpg");
-		gc.drawImage(mario, 40, 90);
+		gc.drawImage(mario, 50, 90);
 		Image link = new Image("link.jpg");
-		gc.drawImage(link, (40+130), 90);
+		gc.drawImage(link, (50+130), 90);
 		Image deadpool = new Image("deadpool.jpg");
-		gc.drawImage(deadpool, (40+130+130), 90);
+		gc.drawImage(deadpool, (50+130+130), 90);
 		Image thomas = new Image("thomasEd.jpg");
-		gc.drawImage(thomas, (40+130+130+130), 90);
+		gc.drawImage(thomas, (50+130+130+130), 90);
 		
 		//Create button variables for scene
 		Button select1 = new Button("Select");
@@ -82,7 +82,7 @@ public class RandChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				if(PickChar.p1.getName() == (new Stats(1)).getName()) {
+				if(p1.getName() == (new Stats(1)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
 					wrong.showAndWait();
@@ -98,7 +98,7 @@ public class RandChar extends Scene {
 					info.showAndWait();
 					
 					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
-					battleScene.initialize(rootNext, PickChar.p1, p2);
+					battleScene.initialize(rootNext, p1, p2);
 				
 					GameFrame.theStage.setScene(battleScene);
 				}
@@ -108,7 +108,7 @@ public class RandChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				if(PickChar.p1.getName() == (new Stats(2)).getName()) {
+				if(p1.getName() == (new Stats(2)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
 					wrong.showAndWait();
@@ -124,7 +124,7 @@ public class RandChar extends Scene {
 					info.showAndWait();
 					
 					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
-					battleScene.initialize(rootNext, PickChar.p1, p2);
+					battleScene.initialize(rootNext, p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);
 				}
@@ -134,7 +134,7 @@ public class RandChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				if(PickChar.p1.getName() == (new Stats(3)).getName()) {
+				if(p1.getName() == (new Stats(3)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
 					wrong.showAndWait();
@@ -150,7 +150,7 @@ public class RandChar extends Scene {
 					info.showAndWait();
 					
 					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
-					battleScene.initialize(rootNext, PickChar.p1, p2);
+					battleScene.initialize(rootNext, p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);
 				}
@@ -160,7 +160,7 @@ public class RandChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				if(PickChar.p1.getName() == (new Stats(4)).getName()) {
+				if(p1.getName() == (new Stats(4)).getName()) {
 					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
 					wrong.setTitle("PICK AGAIN");
 					wrong.showAndWait();
@@ -176,7 +176,7 @@ public class RandChar extends Scene {
 					info.showAndWait();
 					
 					BattleScreen battleScene = new BattleScreen(rootNext, 600, 350);
-					battleScene.initialize(rootNext, PickChar.p1, p2);
+					battleScene.initialize(rootNext, p1, p2);
 
 					GameFrame.theStage.setScene(battleScene);
 				}

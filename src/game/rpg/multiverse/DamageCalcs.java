@@ -1,6 +1,7 @@
 package game.rpg.multiverse;
 
 import game.rpg.multiverse.scenes.PickChar;
+import game.rpg.multiverse.scenes.Player1Char;
 import game.rpg.multiverse.scenes.battle.BattleScreen;
 
 public class DamageCalcs {
@@ -8,26 +9,26 @@ public class DamageCalcs {
 	public static void turnDamageE(Stats p1, Stats p2){
 		
 		/*If the cpu is attacking*/
-		int calc = BattleScreen.p2.getAttack() - PickChar.p1.getDefense();
+		int calc = p2.getAttack() - p1.getDefense();
 		if (calc > 0){
-			int health = PickChar.p1.getCurHealth() - calc;
-			PickChar.p1.setCurHealth(health);
+			int health = p1.getCurHealth() - calc;
+			p1.setCurHealth(health);
 		}
 		else {
-			PickChar.p1.setCurHealth(p1.getCurHealth());
+			p1.setCurHealth(p1.getCurHealth());
 		}
 	
 	}
 	public static void turnDamageC(Stats p1, Stats p2){
 		
 		/*If the user is attacking*/
-		int calc = PickChar.p1.getAttack() - BattleScreen.p2.getDefense();
+		int calc = p1.getAttack() - p2.getDefense();
 		if (calc > 0){
-			int health = BattleScreen.p2.getCurHealth() - calc;
-			BattleScreen.p2.setCurHealth(health);
+			int health = p2.getCurHealth() - calc;
+			p2.setCurHealth(health);
 		}
 		else {
-			BattleScreen.p2.setCurHealth(p2.getCurHealth());
+			p2.setCurHealth(p2.getCurHealth());
 		}
 	}
 	
@@ -35,7 +36,7 @@ public class DamageCalcs {
 		
 		int damage = 0;
 		
-		int calc = PickChar.p1.getAttack() - BattleScreen.p2.getDefense();
+		int calc = p1.getAttack() - p2.getDefense();
 		if (calc > 0)
 			damage = calc;
 		
@@ -48,7 +49,7 @@ public class DamageCalcs {
 	public static int getMoveDamageE(Stats p1, Stats p2) {
 		int damage = 0;
 		
-		int calc = BattleScreen.p2.getAttack() - PickChar.p1.getDefense();
+		int calc = p2.getAttack() - p1.getDefense();
 		if (calc > 0)
 			damage = calc;
 		
