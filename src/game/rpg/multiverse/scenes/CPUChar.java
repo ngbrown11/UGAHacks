@@ -25,6 +25,8 @@ public class CPUChar extends Scene {
 		this.setFill(Color.DIMGREY);
 	}
 	
+	static Stats p2;
+	
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
@@ -50,21 +52,37 @@ public class CPUChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
-				PickChar pickCharScene = new PickChar(rootNext, 600, 250);
-				pickCharScene.initialize(rootNext);
+				RandChar randCharScene = new RandChar(rootNext, 600, 250);
+				randCharScene.initialize(rootNext);
 				
-				GameFrame.theStage.setScene(pickCharScene);
+				GameFrame.theStage.setScene(randCharScene);
 			}
 		});
 		no.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				Group rootNext = new Group();
-				PickChar pickCharScene = new PickChar(rootNext, 600, 250);
-				pickCharScene.initialize(rootNext);
+				AnchorPane rootNext1 = new AnchorPane();
+				AnchorPane rootNext2 = new AnchorPane();
 				
-				GameFrame.theStage.setScene(pickCharScene);
+				int cpu = (int)(Math.random() * 4)+1;
+				p2 = new Stats(cpu);
+				
+				if(cpu == 1)
+					System.out.println("CPU is Mario");
+				else if(cpu == 2)
+					System.out.println("CPU is Link");
+				else if(cpu == 3)
+					System.out.println("CPU is Deadpool");
+				else if(cpu == 4)
+					System.out.println("CPU is Thomas Edison");
+				
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext1, 600, 250);
+				battleScene.initialize(PickChar.p1, p2);
+				
+				GameFrame.theStage.setScene(battleScene);
 			}
 		});
 	}

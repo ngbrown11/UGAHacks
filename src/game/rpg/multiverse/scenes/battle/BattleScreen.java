@@ -33,6 +33,8 @@ public class BattleScreen extends Scene {
 	//private Stats p1 = new Stats(1);
 	private Stats p2 = new Stats(3);
 	Stage window = GameFrame.theStage;
+	CharacterTurn p1Scene;
+	EnemyTurn p2Scene;
 	Scene scene1, scene2, scene3, scene4;
 	
 	//Character buttons
@@ -46,18 +48,18 @@ public class BattleScreen extends Scene {
 	Button btn7 = new Button();
 	Button btn8 = new Button();
 			
-	public void initialize(AnchorPane root1, AnchorPane root2, Stats p1) {
+	public void initialize(Stats p1, Stats p2) {
 		
-		//AnchorPane root3 = new AnchorPane();
-		//AnchorPane root4 = new AnchorPane();
+		AnchorPane root1 = new AnchorPane();
+		AnchorPane root2 = new AnchorPane();
 		
 		if(p1.getSpeed() > p2.getSpeed()) {
-			CharacterTurn p1Scene = new CharacterTurn(root1, 600, 250);
+			p1Scene = new CharacterTurn(root1, 600, 250);
 			p1Scene.initialize(root1, p1);
 			window.setScene(p1Scene);
 		}
 		else if(p1.getSpeed() < p2.getSpeed()) {
-			EnemyTurn p2Scene = new EnemyTurn(root2, 600, 250);
+			p2Scene = new EnemyTurn(root2, 600, 250);
 			p2Scene.initialize(root2, p2);
 			window.setScene(p2Scene);
 		}
@@ -80,37 +82,29 @@ public class BattleScreen extends Scene {
 		btn1.setText(p1.getMove(1));
 		btn1.setOnAction(e -> {
 			System.out.println(p1.getName() + " used " + p1.getMove(1));
-			AnchorPane rootNext = new AnchorPane();
-			CharacterTurn p1Scene = new CharacterTurn(rootNext, 600, 250);
-			p1Scene.initialize(rootNext, p1);
-			window.setScene(p1Scene);
+			
+			window.setScene(p2Scene);
 		});
 		
 		btn2.setText(p1.getMove(2));
 		btn2.setOnAction(e -> {
 			System.out.println(p1.getName() + " used " + p1.getMove(2));
-			AnchorPane rootNext = new AnchorPane();
-			CharacterTurn p1Scene = new CharacterTurn(rootNext, 600, 250);
-			p1Scene.initialize(rootNext, p1);
-			window.setScene(p1Scene);
+			
+			window.setScene(p2Scene);
 		});
 		
 		btn3.setText(p1.getMove(3));
 		btn3.setOnAction(e -> {
 			System.out.println(p1.getName() + " used " + p1.getMove(3));
-			AnchorPane rootNext = new AnchorPane();
-			CharacterTurn p1Scene = new CharacterTurn(rootNext, 600, 250);
-			p1Scene.initialize(rootNext, p1);
-			window.setScene(p1Scene);
+			
+			window.setScene(p2Scene);
 		});
 		
 		btn4.setText(p1.getMove(4));
 		btn4.setOnAction(e -> {
 			System.out.println(p1.getName() + " used " + p1.getMove(4));
-			AnchorPane rootNext = new AnchorPane();
-			CharacterTurn p1Scene = new CharacterTurn(rootNext, 600, 250);
-			p1Scene.initialize(rootNext, p1);
-			window.setScene(p1Scene);
+			
+			window.setScene(p2Scene);
 		});
 		
 		/*//root4 = root2;
@@ -122,37 +116,29 @@ public class BattleScreen extends Scene {
 		btn5.setText(p2.getMove(1));
 		btn5.setOnAction(e -> {
 			System.out.println(p2.getName() + " used " + p2.getMove(1));
-			AnchorPane rootNext = new AnchorPane();
-			EnemyTurn p2Scene = new EnemyTurn(rootNext, 600, 250);
-			p2Scene.initialize(rootNext, p2);
-			window.setScene(p2Scene);
+			
+			window.setScene(p1Scene);
 		});
 		
 		btn6.setText(p2.getMove(2));
 		btn6.setOnAction(e -> { 
 			System.out.println(p2.getName() + " used " + p2.getMove(2));
-			AnchorPane rootNext = new AnchorPane();
-			EnemyTurn p2Scene = new EnemyTurn(rootNext, 600, 250);
-			p2Scene.initialize(rootNext, p2);
-			window.setScene(p2Scene);
+			
+			window.setScene(p1Scene);
 		});
 		
 		btn7.setText(p2.getMove(3));
 		btn7.setOnAction(e -> {
 			System.out.println(p2.getName() + " used " + p2.getMove(3));
-			AnchorPane rootNext = new AnchorPane();
-			EnemyTurn p2Scene = new EnemyTurn(rootNext, 600, 250);
-			p2Scene.initialize(rootNext, p2);
-			window.setScene(p2Scene);
+			
+			window.setScene(p1Scene);
 		});
 		
 		btn8.setText(p2.getMove(4));
 		btn8.setOnAction(e -> {
 			System.out.println(p2.getName() + " used " + p2.getMove(4));
-			AnchorPane rootNext = new AnchorPane();
-			EnemyTurn p2Scene = new EnemyTurn(rootNext, 600, 250);
-			p2Scene.initialize(rootNext, p2);
-			window.setScene(p2Scene);
+			
+			window.setScene(p1Scene);
 		});
 		
 		/*//root3 = root1;

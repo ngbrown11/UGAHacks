@@ -18,45 +18,17 @@ import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-/**		SAVE THIS FOR BATTLESCENE START
- * 
- * select1.setOnAction(new EventHandler<ActionEvent>() {
+public class RandChar extends Scene {
 
-			@Override
-			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
-				AnchorPane rootNext1 = new AnchorPane();
-				
-				Stats p1 = new Stats(1);
-				System.out.println("You selected Mario");
-				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, rootNext1, p1);
-				
-				GameFrame.theStage.setScene(battleScene);
-			}
-		});
-		
-*/
-
-
-
-
-public class PickChar extends Scene {
-
-	public PickChar(Parent root, double width, double height) {
+	public RandChar(Parent root, double width, double height) {
 		super(root, width, height);
 		this.setFill(Color.BEIGE);
 	}
 	
-	static Stats p1;
-	
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(180, 40, "Pick your character");
+		final Text text = new Text(180, 40, "Pick CPU character");
 		Canvas canvas = new Canvas(600, 190);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
@@ -103,56 +75,76 @@ public class PickChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				p1 = new Stats(1);
-				System.out.println("You selected Mario");
+				AnchorPane rootNext = new AnchorPane();
+				AnchorPane rootNext1 = new AnchorPane();
+				AnchorPane rootNext2 = new AnchorPane();
 				
-				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Stats p2 = new Stats(1);
+				System.out.println("CPU is Mario");
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(PickChar.p1, p2);
+				
+				GameFrame.theStage.setScene(battleScene);
 			}
 		});
 		select2.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				p1 = new Stats(2);
-				System.out.println("You selected Link");
+				AnchorPane rootNext = new AnchorPane();
+				AnchorPane rootNext1 = new AnchorPane();
+				AnchorPane rootNext2 = new AnchorPane();
 				
-				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Stats p2 = new Stats(2);
+				System.out.println("CPU is Link");
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(PickChar.p1, p2);
+				
+				GameFrame.theStage.setScene(battleScene);
 			}
 		});
 		select3.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				p1 = new Stats(3);
-				System.out.println("You selected Deadpool");
+				AnchorPane rootNext = new AnchorPane();
+				AnchorPane rootNext1 = new AnchorPane();
+				AnchorPane rootNext2 = new AnchorPane();
 				
-				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Stats p2 = new Stats(1);
+				System.out.println("CPU is Deadpool");
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(PickChar.p1, p2);
+				
+				GameFrame.theStage.setScene(battleScene);
 			}
 		});
 		select4.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				p1 = new Stats(4);
-				System.out.println("You selected Thomas Edison");
+				AnchorPane rootNext = new AnchorPane();
+				AnchorPane rootNext1 = new AnchorPane();
+				AnchorPane rootNext2 = new AnchorPane();
 				
-				Group rootNext = new Group();
-				CPUChar cpuPickScene = new CPUChar(rootNext, 600, 250);
-				cpuPickScene.initialize(rootNext);
+				Stats p2 = new Stats(1);
+				System.out.println("CPU is Thomas Edison");
 				
-				GameFrame.theStage.setScene(cpuPickScene);
+				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
+				
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(PickChar.p1, p2);
+				
+				GameFrame.theStage.setScene(battleScene);
 			}
 		});
 	}
