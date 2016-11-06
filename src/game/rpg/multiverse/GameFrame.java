@@ -10,6 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class GameFrame extends Application {
 	
+	//Create variables
 	public static Stage theStage;
 	private StartScreen startScene;
 	private BattleScreen battleScene;
