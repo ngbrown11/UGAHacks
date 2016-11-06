@@ -161,6 +161,9 @@ public class BattleScreen extends Scene {
 		btn6.setOnAction(e -> { 
 			System.out.println(p2.getName() + " used " + p2.getMove(2));
 			
+			AnchorPane rootNext = new AnchorPane();
+			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
+			p1Scene.initialize(rootNext, PickChar.p1, p2);
 			window.setScene(p1Scene);
 		});
 		

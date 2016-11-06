@@ -111,7 +111,7 @@ public class RandChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
 				
-				Stats p2 = new Stats(1);
+				Stats p2 = new Stats(3);
 				System.out.println("CPU is Deadpool");
 				
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
@@ -128,7 +128,7 @@ public class RandChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
 				
-				Stats p2 = new Stats(1);
+				Stats p2 = new Stats(4);
 				System.out.println("CPU is Thomas Edison");
 				
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
