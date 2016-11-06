@@ -51,7 +51,7 @@ public class PickChar extends Scene {
 		this.setFill(Color.BEIGE);
 	}
 	
-	static Stats p1;
+	public static Stats p1;
 	
 	public void initialize(Group root) {
 		

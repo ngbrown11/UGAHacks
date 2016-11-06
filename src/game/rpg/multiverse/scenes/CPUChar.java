@@ -51,19 +51,7 @@ public class CPUChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				Group rootNext = new Group();
-				RandChar randCharScene = new RandChar(rootNext, 600, 250);
-				randCharScene.initialize(rootNext);
-				
-				GameFrame.theStage.setScene(randCharScene);
-			}
-		});
-		no.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext1 = new AnchorPane();
-				AnchorPane rootNext2 = new AnchorPane();
+				AnchorPane rootNext = new AnchorPane();
 				
 				int cpu = (int)(Math.random() * 4)+1;
 				p2 = new Stats(cpu);
@@ -79,10 +67,21 @@ public class CPUChar extends Scene {
 				
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
-				BattleScreen battleScene = new BattleScreen(rootNext1, 600, 250);
-				battleScene.initialize(PickChar.p1, p2);
+				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+				battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
+			}
+		});
+		no.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg1) {
+				Group rootNext = new Group();
+				RandChar randCharScene = new RandChar(rootNext, 600, 250);
+				randCharScene.initialize(rootNext);
+				
+				GameFrame.theStage.setScene(randCharScene);
 			}
 		});
 	}

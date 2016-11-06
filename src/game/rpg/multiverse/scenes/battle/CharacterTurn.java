@@ -9,6 +9,8 @@ import javafx.scene.paint.Color;
 
 public class CharacterTurn extends BattleScreen {
 
+	private Object btn1;
+
 	public CharacterTurn(Parent root, double width, double height) {
 		super(root, width, height);
 		this.setFill(Color.DIMGREY);
@@ -16,6 +18,11 @@ public class CharacterTurn extends BattleScreen {
 	
 	public void initialize(AnchorPane root2, Stats p1) {
 		
+		//Character buttons
+		Button btn1 = new Button();
+		Button btn2 = new Button();
+		Button btn3 = new Button();
+		Button btn4 = new Button();
 		HBox hbox = new HBox(5, btn1, btn2, btn3, btn4);
 		
 		btn1.setText(p1.getMove(1));

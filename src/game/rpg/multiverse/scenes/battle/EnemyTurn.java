@@ -17,6 +17,11 @@ public class EnemyTurn extends BattleScreen {
 	
 	public void initialize(AnchorPane root1, Stats p2) {
 		
+		//Enemy buttons
+		Button btn5 = new Button();
+		Button btn6 = new Button();
+		Button btn7 = new Button();
+		Button btn8 = new Button();
 		HBox hbox = new HBox(5, btn5, btn6, btn7, btn8);
 		
 		btn5.setText(p2.getMove(1));

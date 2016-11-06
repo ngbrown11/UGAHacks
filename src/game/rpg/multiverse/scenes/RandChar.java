@@ -76,8 +76,6 @@ public class RandChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
-				AnchorPane rootNext1 = new AnchorPane();
-				AnchorPane rootNext2 = new AnchorPane();
 				
 				Stats p2 = new Stats(1);
 				System.out.println("CPU is Mario");
@@ -85,7 +83,7 @@ public class RandChar extends Scene {
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
 				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(PickChar.p1, p2);
+				battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
@@ -95,8 +93,6 @@ public class RandChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
-				AnchorPane rootNext1 = new AnchorPane();
-				AnchorPane rootNext2 = new AnchorPane();
 				
 				Stats p2 = new Stats(2);
 				System.out.println("CPU is Link");
@@ -104,7 +100,7 @@ public class RandChar extends Scene {
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
 				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(PickChar.p1, p2);
+				battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
@@ -114,8 +110,6 @@ public class RandChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
-				AnchorPane rootNext1 = new AnchorPane();
-				AnchorPane rootNext2 = new AnchorPane();
 				
 				Stats p2 = new Stats(1);
 				System.out.println("CPU is Deadpool");
@@ -123,7 +117,7 @@ public class RandChar extends Scene {
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
 				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(PickChar.p1, p2);
+				battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
@@ -133,8 +127,6 @@ public class RandChar extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
-				AnchorPane rootNext1 = new AnchorPane();
-				AnchorPane rootNext2 = new AnchorPane();
 				
 				Stats p2 = new Stats(1);
 				System.out.println("CPU is Thomas Edison");
@@ -142,7 +134,7 @@ public class RandChar extends Scene {
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
 				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(PickChar.p1, p2);
+				battleScene.initialize(rootNext, PickChar.p1, p2);
 				
 				GameFrame.theStage.setScene(battleScene);
 			}
