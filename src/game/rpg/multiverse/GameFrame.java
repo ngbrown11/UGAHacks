@@ -5,6 +5,8 @@ import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class GameFrame extends Application {
 	
@@ -27,6 +29,12 @@ public class GameFrame extends Application {
 		
 		stage.setTitle("Multiverse Battleground");
 		stage.setScene(startScene);
+		
+		Alert hello = new Alert(AlertType.CONFIRMATION, "Hello, and welcome to the Mutliverse!\n\n"
+				+ "The place where universes collide");
+		hello.setTitle("MULTIVERSE BATTLEGROUND");
+		hello.show();
+		
 		stage.show();
 		
 	}

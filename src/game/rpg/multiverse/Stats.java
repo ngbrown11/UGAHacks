@@ -77,6 +77,7 @@ public class Stats {
 	}
 	
 	public void decDefense(Stats character, Stats enemy){
+		incTurn();
 		Random random = new Random();
 		if(turn != 0){
 		character.defense -= random.nextInt(5);

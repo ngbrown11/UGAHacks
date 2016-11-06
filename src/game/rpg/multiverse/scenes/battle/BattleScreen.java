@@ -12,10 +12,15 @@ import javafx.scene.effect.DropShadow;
 import javafx.event.ActionEvent;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.util.Random;
+
 import game.rpg.multiverse.DamageCalcs;
 import game.rpg.multiverse.GameFrame;
 import game.rpg.multiverse.Stats;
 import game.rpg.multiverse.scenes.PickChar;
+import game.rpg.multiverse.scenes.StartScreen;
+import game.rpg.multiverse.scenes.Winner;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -31,12 +36,12 @@ public class BattleScreen extends Scene {
 	}
 	
 	DamageCalcs battle = new DamageCalcs();
-	//private Stats p1 = new Stats(1);
-	//private Stats p2 = new Stats(3);
+	
 	Stage window = GameFrame.theStage;
 	CharacterTurn p1Scene;
 	EnemyTurn p2Scene;
 	Scene scene1, scene2, scene3, scene4;
+	public static Stats p2;
 	
 	Button btn1;
 	Button btn2;
@@ -48,62 +53,150 @@ public class BattleScreen extends Scene {
 	Button btn8;
 	
 	static int turn;
+	static Text move = new Text("");
+	static Text damage = new Text("");
+	static Text health = new Text("");
+	Random random = new Random();
+	
 	public void initialize(AnchorPane root, Stats p1, Stats p2) {
+		
+		final Text moveP1 = new Text(180, 40, "Choose your move");
 		
 		btn1 = new Button();
 		btn2 = new Button();
 		btn3 = new Button();
 		btn4 = new Button();
-		HBox hbox1 = new HBox(5, btn1, btn2, btn3, btn4);
+		HBox hbox1 = new HBox(8, moveP1, btn1, btn2, btn3, btn4);
 		btn5 = new Button();
 		btn6 = new Button();
 		btn7 = new Button();
 		btn8 = new Button();
-		HBox hbox2 = new HBox(5, btn5, btn6, btn7, btn8);
+		HBox hbox2 = new HBox(8, btn5, btn6, btn7, btn8);
+		//HBox textMove = new HBox(move);
 		
+		this.p2 = p2;
 		
+		//Player turn
 		if(p1.getSpeed() > p2.getSpeed() && (turn % 2 == 0)) {
-			/*p1Scene = new CharacterTurn(root1, 600, 250);
-			p1Scene.initialize(root1, p1);*/
-			//Character buttons
 			
+			p1.decDefense(p1, p2);
 			turn++;
+			//root.getChildren().add(moveP1);
 			root.getChildren().add(hbox1);
-			AnchorPane.setLeftAnchor(hbox1, 10d);
+			root.getChildren().add(move);
+			root.getChildren().add(damage);
+			root.getChildren().add(health);
+			AnchorPane.setRightAnchor(hbox1, 10d);
 			AnchorPane.setBottomAnchor(hbox1, 10d);
+			AnchorPane.setLeftAnchor(move, 15d);
+			AnchorPane.setBottomAnchor(move, 50d);
+			AnchorPane.setTopAnchor(damage, 10d);
+			AnchorPane.setLeftAnchor(damage, 15d);
+			AnchorPane.setTopAnchor(health, 10d);
+			AnchorPane.setRightAnchor(health, 10d);
 		}
+		//CPU turn
 		else if(p1.getSpeed() > p2.getSpeed() && (turn % 2 != 0)) {
 			
+			p1.decDefense(p1, p2);
 			turn++;
 			root.getChildren().add(hbox2);
-			AnchorPane.setLeftAnchor(hbox2, 10d);
+			root.getChildren().add(move);
+			root.getChildren().add(damage);
+			root.getChildren().add(health);
+			AnchorPane.setRightAnchor(hbox2, 10d);
 			AnchorPane.setBottomAnchor(hbox2, 10d);
+			AnchorPane.setLeftAnchor(move, 15d);
+			AnchorPane.setBottomAnchor(move, 50d);
+			AnchorPane.setTopAnchor(damage, 10d);
+			AnchorPane.setLeftAnchor(damage, 15d);
+			AnchorPane.setTopAnchor(health, 10d);
+			AnchorPane.setRightAnchor(health, 10d);
+			int rand = random.nextInt(5);
+			while (rand == 0 || rand > 4){
+				rand = random.nextInt(5);
+			}
+			if(rand == 1)
+				btn5.fire();
+			else if(rand == 2)
+				btn6.fire();
+			else if(rand == 3)
+				btn7.fire();
+			else if(rand == 4)
+				btn8.fire();
 		}
+		//CPU turn
 		else if(p1.getSpeed() < p2.getSpeed() && (turn % 2 == 0)) {
-			/*p2Scene = new EnemyTurn(root2, 600, 250);
-			p2Scene.initialize(root2, p2);*/
 			
+			p1.decDefense(p1, p2);
 			turn++;
 			root.getChildren().add(hbox2);
-			AnchorPane.setLeftAnchor(hbox2, 10d);
+			root.getChildren().add(move);
+			root.getChildren().add(damage);
+			root.getChildren().add(health);
+			AnchorPane.setRightAnchor(hbox2, 10d);
 			AnchorPane.setBottomAnchor(hbox2, 10d);
+			AnchorPane.setLeftAnchor(move, 15d);
+			AnchorPane.setBottomAnchor(move, 50d);
+			AnchorPane.setTopAnchor(damage, 10d);
+			AnchorPane.setLeftAnchor(damage, 15d);
+			AnchorPane.setTopAnchor(health, 10d);
+			AnchorPane.setRightAnchor(health, 10d);
+			int rand = random.nextInt(5);
+			while (rand == 0 || rand > 4){
+				rand = random.nextInt(5);
+			}
+			if(rand == 1)
+				btn5.fire();
+			else if(rand == 2)
+				btn6.fire();
+			else if(rand == 3)
+				btn7.fire();
+			else if(rand == 4)
+				btn8.fire();
 		}
+		//Player turn
 		else if(p1.getSpeed() < p2.getSpeed() && (turn % 2 != 0)) {
 			
+			p1.decDefense(p1, p2);
 			turn++;
+			//root.getChildren().add(moveP1);
 			root.getChildren().add(hbox1);
-			AnchorPane.setLeftAnchor(hbox1, 10d);
+			root.getChildren().add(move);
+			root.getChildren().add(damage);
+			root.getChildren().add(health);
+			AnchorPane.setRightAnchor(hbox1, 10d);
 			AnchorPane.setBottomAnchor(hbox1, 10d);
+			AnchorPane.setLeftAnchor(move, 15d);
+			AnchorPane.setBottomAnchor(move, 50d);
+			AnchorPane.setTopAnchor(damage, 10d);
+			AnchorPane.setLeftAnchor(damage, 15d);
+			AnchorPane.setTopAnchor(health, 10d);
+			AnchorPane.setRightAnchor(health, 10d);
 		}
 		
 		
 		//HBox hbox3 = new HBox(5, btn1, btn2, btn3, btn4);	//Contain the buttons on the page
 		//HBox hbox4 = new HBox(5, btn5, btn6, btn7, btn8);
 
-		
+		//Buttons for user moves
 		btn1.setText(p1.getMove(1));
 		btn1.setOnAction(e -> {
-			System.out.println(p1.getName() + " used " + p1.getMove(1));
+			move.setText(p1.getName() + " used " + p1.getMove(1));
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageC(p1, p2);
+			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			if (p2.getCurHealth() <= 0){
+				
+				Group win = new Group();
+				Winner winScene = new Winner(win, 600, 250);
+				try {
+					winScene.initialize(win, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
@@ -113,7 +206,22 @@ public class BattleScreen extends Scene {
 		
 		btn2.setText(p1.getMove(2));
 		btn2.setOnAction(e -> {
-			System.out.println(p1.getName() + " used " + p1.getMove(2));
+			move.setText(p1.getName() + " used " + p1.getMove(2));
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageC(p1, p2);
+			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			
+			if (p2.getCurHealth() <= 0){
+				
+				Group win = new Group();
+				Winner winScene = new Winner(win, 600, 250);
+				try {
+					winScene.initialize(win, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
@@ -123,7 +231,21 @@ public class BattleScreen extends Scene {
 		
 		btn3.setText(p1.getMove(3));
 		btn3.setOnAction(e -> {
-			System.out.println(p1.getName() + " used " + p1.getMove(3));
+			move.setText(p1.getName() + " used " + p1.getMove(3));
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageC(p1, p2);
+			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			if (p2.getCurHealth() <= 0){
+				
+				Group win = new Group();
+				Winner winScene = new Winner(win, 600, 250);
+				try {
+					winScene.initialize(win, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
@@ -133,7 +255,21 @@ public class BattleScreen extends Scene {
 		
 		btn4.setText(p1.getMove(4));
 		btn4.setOnAction(e -> {
-			System.out.println(p1.getName() + " used " + p1.getMove(4));
+			move.setText(p1.getName() + " used " + p1.getMove(4));
+			damage.setText("It did " + DamageCalcs.getMoveDamageC(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageC(p1, p2);
+			health.setText(BattleScreen.p2.getName() + " has " + BattleScreen.p2.getCurHealth() + " points left");
+			if (p2.getCurHealth() <= 0){
+				
+				Group win = new Group();
+				Winner winScene = new Winner(win, 600, 250);
+				try {
+					winScene.initialize(win, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p2Scene = new BattleScreen(rootNext, 600, 250);
@@ -141,15 +277,24 @@ public class BattleScreen extends Scene {
 			window.setScene(p2Scene);
 		});
 		
-		/*//root4 = root2;
-		scene4 = new BattleScreen(root2, 600, 250);
-		root2.getChildren().addAll(hbox4);
-		AnchorPane.setLeftAnchor(hbox4, 10d);
-		AnchorPane.setBottomAnchor(hbox4, 10d);*/
 		
+		//Buttons for CPU moves
 		btn5.setText(p2.getMove(1));
 		btn5.setOnAction(e -> {
-			System.out.println(p2.getName() + " used " + p2.getMove(1));
+			move.setText(p2.getName() + " used " + p2.getMove(1));
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageE(p1, p2);
+			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			if (p1.getCurHealth() <= 0){
+				Group lose = new Group();
+				Winner winScene = new Winner(lose, 600, 250);
+				try {
+					winScene.initialize(lose, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
@@ -159,7 +304,20 @@ public class BattleScreen extends Scene {
 		
 		btn6.setText(p2.getMove(2));
 		btn6.setOnAction(e -> { 
-			System.out.println(p2.getName() + " used " + p2.getMove(2));
+			move.setText(p2.getName() + " used " + p2.getMove(2));
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageE(p1, p2);
+			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			if (p1.getCurHealth() <= 0){
+				Group lose = new Group();
+				Winner winScene = new Winner(lose, 600, 250);
+				try {
+					winScene.initialize(lose, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
@@ -169,7 +327,20 @@ public class BattleScreen extends Scene {
 		
 		btn7.setText(p2.getMove(3));
 		btn7.setOnAction(e -> {
-			System.out.println(p2.getName() + " used " + p2.getMove(3));
+			move.setText(p2.getName() + " used " + p2.getMove(3));
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageE(p1, p2);
+			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			if (p1.getCurHealth() <= 0){
+				Group lose = new Group();
+				Winner winScene = new Winner(lose, 600, 250);
+				try {
+					winScene.initialize(lose, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
@@ -179,7 +350,20 @@ public class BattleScreen extends Scene {
 		
 		btn8.setText(p2.getMove(4));
 		btn8.setOnAction(e -> {
-			System.out.println(p2.getName() + " used " + p2.getMove(4));
+			move.setText(p2.getName() + " used " + p2.getMove(4));
+			damage.setText("It did " + DamageCalcs.getMoveDamageE(PickChar.p1, BattleScreen.p2) + " points of damage.");
+			DamageCalcs.turnDamageE(p1, p2);
+			health.setText(PickChar.p1.getName() + " has " + PickChar.p1.getCurHealth() + " points left");
+			if (p1.getCurHealth() <= 0){
+				Group lose = new Group();
+				Winner winScene = new Winner(lose, 600, 250);
+				try {
+					winScene.initialize(lose, p1);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			
 			AnchorPane rootNext = new AnchorPane();
 			BattleScreen p1Scene = new BattleScreen(rootNext, 600, 250);
@@ -187,11 +371,6 @@ public class BattleScreen extends Scene {
 			window.setScene(p1Scene);
 		});
 		
-		/*//root3 = root1;
-		scene3 = new BattleScreen(root1, 600, 250);
-		root1.getChildren().addAll(hbox3);
-		AnchorPane.setLeftAnchor(hbox3, 10d);
-		AnchorPane.setBottomAnchor(hbox3, 10d);*/
 	}
 	
 }

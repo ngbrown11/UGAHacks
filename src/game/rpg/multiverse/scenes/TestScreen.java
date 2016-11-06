@@ -1,4 +1,4 @@
-package game.rpg.multiverse.scenes;
+/*package game.rpg.multiverse.scenes;
 
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -42,3 +42,4 @@ public class TestScreen extends Scene {
 	}
 
 }
+*/

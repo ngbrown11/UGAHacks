@@ -22,13 +22,13 @@ public class StartScreen extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(160, 120, "Multiverse Battleground");
+		final Text text = new Text(100, 120, "Multiverse Battleground");
 		Button start = new Button("Start");
 		start.setLayoutX(275);		//Set location
 		start.setLayoutY(150);
 		
 		//Edit the main text
-		text.setFont(Font.font("Calibri", 30));
+		text.setFont(Font.font("Cambria", 42));
 		text.setFill(Color.WHITE);
 		text.setEffect(new DropShadow());
 		
@@ -40,7 +40,7 @@ public class StartScreen extends Scene {
 			@Override
 			public void handle(ActionEvent arg1) {
 				Group rootNext = new Group();
-				PickChar pickCharScene = new PickChar(rootNext, 600, 250);
+				PickChar pickCharScene = new PickChar(rootNext, 600, 300);
 				pickCharScene.initialize(rootNext);
 				
 				GameFrame.theStage.setScene(pickCharScene);

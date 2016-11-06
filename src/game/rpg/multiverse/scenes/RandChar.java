@@ -10,7 +10,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.DropShadow;
 import game.rpg.multiverse.GameFrame;
 import game.rpg.multiverse.Stats;
@@ -28,7 +30,7 @@ public class RandChar extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(180, 40, "Pick CPU character");
+		final Text text = new Text(140, 40, "Pick CPU character");
 		Canvas canvas = new Canvas(600, 190);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
@@ -59,7 +61,7 @@ public class RandChar extends Scene {
 		
 		
 		//Edit the main text
-		text.setFont(Font.font("Calibri", 30));
+		text.setFont(Font.font("Calibri", 34));
 		text.setFill(Color.CRIMSON);
 		text.setEffect(new DropShadow());
 		
@@ -75,68 +77,100 @@ public class RandChar extends Scene {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
+				if(PickChar.p1.getName() == (new Stats(1)).getName()) {
+					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
+					wrong.setTitle("PICK AGAIN");
+					wrong.show();
+				}
+				else {
+					AnchorPane rootNext = new AnchorPane();
+					
+					Stats p2 = new Stats(1);
+					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+							+ p2.displayInfo());
+					info.setTitle("Stats");
+					info.show();
+					
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					battleScene.initialize(rootNext, PickChar.p1, p2);
 				
-				Stats p2 = new Stats(1);
-				System.out.println("CPU is Mario");
-				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, PickChar.p1, p2);
-				
-				GameFrame.theStage.setScene(battleScene);
+					GameFrame.theStage.setScene(battleScene);
+				}
 			}
 		});
 		select2.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
-				
-				Stats p2 = new Stats(2);
-				System.out.println("CPU is Link");
-				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, PickChar.p1, p2);
-				
-				GameFrame.theStage.setScene(battleScene);
+				if(PickChar.p1.getName() == (new Stats(2)).getName()) {
+					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
+					wrong.setTitle("PICK AGAIN");
+					wrong.show();
+				}
+				else {
+					AnchorPane rootNext = new AnchorPane();
+
+					Stats p2 = new Stats(2);
+					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+							+ p2.displayInfo());
+					info.setTitle("Stats");
+					info.show();
+					
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					battleScene.initialize(rootNext, PickChar.p1, p2);
+
+					GameFrame.theStage.setScene(battleScene);
+				}
 			}
 		});
 		select3.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
-				
-				Stats p2 = new Stats(3);
-				System.out.println("CPU is Deadpool");
-				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, PickChar.p1, p2);
-				
-				GameFrame.theStage.setScene(battleScene);
+				if(PickChar.p1.getName() == (new Stats(3)).getName()) {
+					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
+					wrong.setTitle("PICK AGAIN");
+					wrong.show();
+				}
+				else {
+					AnchorPane rootNext = new AnchorPane();
+
+					Stats p2 = new Stats(3);
+					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+							+ p2.displayInfo());
+					info.setTitle("Stats");
+					info.show();
+					
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					battleScene.initialize(rootNext, PickChar.p1, p2);
+
+					GameFrame.theStage.setScene(battleScene);
+				}
 			}
 		});
 		select4.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg1) {
-				AnchorPane rootNext = new AnchorPane();
-				
-				Stats p2 = new Stats(4);
-				System.out.println("CPU is Thomas Edison");
-				
-				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
-				
-				BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
-				battleScene.initialize(rootNext, PickChar.p1, p2);
-				
-				GameFrame.theStage.setScene(battleScene);
+				if(PickChar.p1.getName() == (new Stats(4)).getName()) {
+					Alert wrong = new Alert(AlertType.ERROR, "Can't have that same character as user 1.");
+					wrong.setTitle("PICK AGAIN");
+					wrong.show();
+				}
+				else {
+					AnchorPane rootNext = new AnchorPane();
+
+					Stats p2 = new Stats(4);
+					Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+							+ p2.displayInfo());
+					info.setTitle("Stats");
+					info.show();
+					
+					BattleScreen battleScene = new BattleScreen(rootNext, 600, 250);
+					battleScene.initialize(rootNext, PickChar.p1, p2);
+
+					GameFrame.theStage.setScene(battleScene);
+				}
 			}
 		});
 	}

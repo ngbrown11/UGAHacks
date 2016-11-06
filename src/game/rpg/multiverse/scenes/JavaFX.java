@@ -1,4 +1,4 @@
-package game.rpg.multiverse.scenes;
+/*package game.rpg.multiverse.scenes;
 
 import game.rpg.multiverse.DamageCalcs;
 import game.rpg.multiverse.Stats;
@@ -110,3 +110,4 @@ public class JavaFX extends Application {
 		primaryStage.show();
 	}
 }
+*/

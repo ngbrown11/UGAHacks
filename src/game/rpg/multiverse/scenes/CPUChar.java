@@ -10,7 +10,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.DropShadow;
 import game.rpg.multiverse.GameFrame;
 import game.rpg.multiverse.Stats;
@@ -25,12 +27,12 @@ public class CPUChar extends Scene {
 		this.setFill(Color.DIMGREY);
 	}
 	
-	static Stats p2;
+	public static Stats p2;
 	
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(140, 120, "Do you want a random opponent?");
+		final Text text = new Text(100, 120, "Do you want a random opponent?");
 		Button yes = new Button("Yes");
 		Button no = new Button("No");
 		yes.setLayoutX(200);		//Set location
@@ -39,7 +41,7 @@ public class CPUChar extends Scene {
 		no.setLayoutY(150);
 		
 		//Edit the main text
-		text.setFont(Font.font("Calibri", 26));
+		text.setFont(Font.font("Calibri", 32));
 		text.setFill(Color.CRIMSON);
 		text.setEffect(new DropShadow());
 		
@@ -53,17 +55,20 @@ public class CPUChar extends Scene {
 			public void handle(ActionEvent arg1) {
 				AnchorPane rootNext = new AnchorPane();
 				
-				int cpu = (int)(Math.random() * 4)+1;
+				//Randomize CPU
+				int cpu = (int)(Math.random() * 4) + 1;
 				p2 = new Stats(cpu);
 				
-				if(cpu == 1)
-					System.out.println("CPU is Mario");
-				else if(cpu == 2)
-					System.out.println("CPU is Link");
-				else if(cpu == 3)
-					System.out.println("CPU is Deadpool");
-				else if(cpu == 4)
-					System.out.println("CPU is Thomas Edison");
+				//Make sure the CPU is different than the user
+				while(p2.getName() == PickChar.p1.getName()) {
+					cpu = (int)(Math.random() * 4) + 1;
+					p2 = new Stats(cpu);
+				}
+				
+				Alert info = new Alert(AlertType.CONFIRMATION, "Here are " + p2.getName() + "'s stats\n"
+						+ p2.displayInfo());
+				info.setTitle("Stats");
+				info.show();
 				
 				//ADD THE VARIABLE FOR THE INT TO BE INPUT IN THE STATS CONSTRUCTOR
 				
