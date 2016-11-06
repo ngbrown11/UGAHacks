@@ -10,9 +10,6 @@ public class DamageCalcs {
 			if (calc > 0){
 				int health = p2.getCurHealth() - calc;
 				p2.setCurHealth(health);
-			} else if(calc == 0) {
-				int health = p2.getCurHealth() - 2;
-				p2.setCurHealth(health);
 			} else {
 				p2.setCurHealth(p2.getCurHealth());
 			}
@@ -24,9 +21,6 @@ public class DamageCalcs {
 			int calc = p2.getAttack() - p1.getDefense();
 			if (calc > 0){
 				int health = p1.getCurHealth() - calc;
-				p1.setCurHealth(health);
-			} else if(calc == 0) {
-				int health = p1.getCurHealth() - 2;
 				p1.setCurHealth(health);
 			} else {
 				p1.setCurHealth(p1.getCurHealth());
