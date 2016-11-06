@@ -48,11 +48,13 @@ public class BattleScreen extends Scene {
 	static Text damage = new Text("");
 	static Text health = new Text("");
 	Random random = new Random();
+	int key = 0;
 	
 	public void initialize(AnchorPane root, Stats p1, Stats p2) {
 		
 		this.p2 = p2;
-		final Text moveP1 = new Text(180, 40, "Choose your move");
+		final Text moveP1 = new Text(180, 40, PickChar.p1.getName()+" turn");
+		final Text moveP2 = new Text(180, 40, BattleScreen.p2.getName()+" turn");
 		Canvas canvas = new Canvas(600, 240);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
@@ -74,7 +76,8 @@ public class BattleScreen extends Scene {
 		btn6 = new Button();
 		btn7 = new Button();
 		btn8 = new Button();
-		HBox hbox2 = new HBox(8, btn5, btn6, btn7, btn8);
+		HBox hbox2 = new HBox(8, moveP2, btn5, btn6, btn7, btn8);
+		Button[] buttons = {btn5, btn6, btn7, btn8};
 		//HBox textMove = new HBox(move);
 		
 		//Player turn
@@ -96,7 +99,7 @@ public class BattleScreen extends Scene {
 			AnchorPane.setTopAnchor(health, 10d);
 			AnchorPane.setRightAnchor(health, 10d);
 		}
-		//CPU turn
+		//Player2 turn
 		else if(p1.getSpeed() > p2.getSpeed() && (turn % 2 != 0)) {
 			
 			p1.decDefense(p1, p2);
@@ -113,20 +116,9 @@ public class BattleScreen extends Scene {
 			AnchorPane.setLeftAnchor(damage, 15d);
 			AnchorPane.setTopAnchor(health, 10d);
 			AnchorPane.setRightAnchor(health, 10d);
-			int rand = random.nextInt(5);
-			while (rand == 0 || rand > 4){
-				rand = random.nextInt(5);
-			}
-			if(rand == 1)
-				btn5.fire();
-			else if(rand == 2)
-				btn6.fire();
-			else if(rand == 3)
-				btn7.fire();
-			else if(rand == 4)
-				btn8.fire();
+			
 		}
-		//CPU turn
+		//Player2 turn
 		else if(p1.getSpeed() < p2.getSpeed() && (turn % 2 == 0)) {
 			
 			p1.decDefense(p1, p2);
@@ -143,18 +135,7 @@ public class BattleScreen extends Scene {
 			AnchorPane.setLeftAnchor(damage, 15d);
 			AnchorPane.setTopAnchor(health, 10d);
 			AnchorPane.setRightAnchor(health, 10d);
-			int rand = random.nextInt(5);
-			while (rand == 0 || rand > 4){
-				rand = random.nextInt(5);
-			}
-			if(rand == 1)
-				btn5.fire();
-			else if(rand == 2)
-				btn6.fire();
-			else if(rand == 3)
-				btn7.fire();
-			else if(rand == 4)
-				btn8.fire();
+			
 		}
 		//Player turn
 		else if(p1.getSpeed() < p2.getSpeed() && (turn % 2 != 0)) {

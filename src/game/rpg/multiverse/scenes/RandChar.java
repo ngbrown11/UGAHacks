@@ -19,6 +19,7 @@ import game.rpg.multiverse.Stats;
 import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 
 public class RandChar extends Scene {
 
@@ -30,7 +31,7 @@ public class RandChar extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(130, 40, "Pick CPU character");
+		final Text text = new Text(160, 40, "Pick CPU character");
 		Canvas canvas = new Canvas(600, 240);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
@@ -48,15 +49,19 @@ public class RandChar extends Scene {
 		Button select1 = new Button("Select");
 		select1.setLayoutX(75);		//Set location
 		select1.setLayoutY(225);
+		select1.setPadding(new Insets(10));
 		Button select2 = new Button("Select");
 		select2.setLayoutX(200);		//Set location
 		select2.setLayoutY(225);
+		select2.setPadding(new Insets(10));
 		Button select3 = new Button("Select");
 		select3.setLayoutX(325);		//Set location
 		select3.setLayoutY(225);
+		select3.setPadding(new Insets(10));
 		Button select4 = new Button("Select");
 		select4.setLayoutX(450);		//Set location
 		select4.setLayoutY(225);
+		select4.setPadding(new Insets(10));
 		
 		
 		

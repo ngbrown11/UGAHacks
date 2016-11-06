@@ -11,6 +11,7 @@ import javafx.scene.effect.DropShadow;
 import game.rpg.multiverse.GameFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 
 public class StartScreen extends Scene {
 	
@@ -22,10 +23,11 @@ public class StartScreen extends Scene {
 	public void initialize(Group root) {
 		
 		//Create the variables for the scene
-		final Text text = new Text(100, 120, "Multiverse Battleground");
+		final Text text = new Text(95, 120, "Multiverse Battleground");
 		Button start = new Button("Start");
 		start.setLayoutX(275);		//Set location
 		start.setLayoutY(150);
+		start.setPadding(new Insets(10));
 		
 		//Edit the main text
 		text.setFont(Font.font("Cambria", 42));

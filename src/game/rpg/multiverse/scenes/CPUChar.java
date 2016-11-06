@@ -19,6 +19,7 @@ import game.rpg.multiverse.Stats;
 import game.rpg.multiverse.scenes.battle.BattleScreen;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 
 public class CPUChar extends Scene {
 
@@ -37,8 +38,10 @@ public class CPUChar extends Scene {
 		Button no = new Button("No");
 		yes.setLayoutX(200);		//Set location
 		yes.setLayoutY(150);
+		yes.setPadding(new Insets(10));
 		no.setLayoutX(325);		//Set location
 		no.setLayoutY(150);
+		no.setPadding(new Insets(10));
 		
 		//Edit the main text
 		text.setFont(Font.font("Calibri", 32));
