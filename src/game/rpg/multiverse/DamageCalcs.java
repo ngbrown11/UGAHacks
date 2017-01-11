@@ -1,9 +1,5 @@
 package game.rpg.multiverse;
 
-import game.rpg.multiverse.scenes.PickChar;
-import game.rpg.multiverse.scenes.Player1Char;
-import game.rpg.multiverse.scenes.battle.BattleScreen;
-
 public class DamageCalcs {
 	
 	public static void turnDamageE(Stats p1, Stats p2){
